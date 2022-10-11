@@ -1,0 +1,25 @@
+import UIKit
+
+class ViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.showHideNavigationBar(showNavigationBar: false)
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        sleep(3)
+        if UserDefaults.standard.bool(forKey: "isLoggedIn")
+        {
+            self.performSegue(withIdentifier: AppSegueIdentifier.SPLASH_HOME, sender: self)
+        }else
+        {
+            self.performSegue(withIdentifier: AppSegueIdentifier.SPLASH_LOGIN, sender: self)
+        }
+        
+    }   
+    
+}
