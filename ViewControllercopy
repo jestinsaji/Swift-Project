@@ -1,0 +1,16 @@
+import UIKit
+
+class TermsAndConditionsViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.setNavigationBarWithNoBack(withTitle: "TERMS AND CONDITIONS OF USE")
+        if let fir:String = UserDefaults.standard.value(forKey: "FIR") as? String{
+            sendFirebaseToken(firebaseToken: fir)
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.showHideNavigationBar(showNavigationBar: true)
+    }
